@@ -38,25 +38,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 PATH=/usr/local/mysql/bin:$PATH
 
-#Prompt
-PROMPT='
-%{$fg_bold[green]%}%p %{$fg[magenta]%}%n%{$fg[white]%} @ %{$fg_bold[yellow]%}%d %{$fg_bold[blue]%}
-$(git_prompt_info)%{$fg_bold[blue]%}%{$fg_bold[red]%}➜ % %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+#Environment 
+source ~/dotfiles/env
 
 #History
 HISTFILESIZE=1000000000
 
-#Server Alias
-#!/usr/bin/env python 
-function server() {
-        local port="${1:-8000}"
-        open "http://localhost:${port}/"
-        python -m  SimpleHTTPServer "$port"
-}
-
-
+#Alias
+source ~/dotfiles/alias
