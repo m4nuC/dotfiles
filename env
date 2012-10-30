@@ -1,3 +1,7 @@
+#Paths
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin
+
+#Prompt
 PROMPT='
 %{$fg_bold[green]%}%p %{$fg[magenta]%}%n%{$fg[white]%} @ %{$fg_bold[yellow]%}%d %{$fg_bold[blue]%}
 $(git_prompt_info)%{$fg_bold[blue]%}%{$fg_bold[red]%}➜ % %{$reset_color%}'

@@ -1,7 +1,22 @@
 #Server Alias
-#!/usr/bin/env python 
 function server() {
         local port="${1:-8000}"
         open "http://localhost:${port}/"
         python -m  SimpleHTTPServer "$port"
 }
+
+#folders
+function take {
+	mkdir $1
+	cd $1
+}
+
+# List alias
+alias la="ls -la"
+
+#exit 
+alias x="exit"
+
+#Folders
+alias gora="cd /Users/manu/www/_Perso/site_review_app/"
+
