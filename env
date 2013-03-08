@@ -1,12 +1,12 @@
 #Paths
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin
+export PATH=/usr/local/php5/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin
 
 #Prompt
 PROMPT='
-%{$fg_bold[green]%}%p %{$fg[magenta]%}%n%{$fg[white]%} @ %{$fg_bold[yellow]%}%d %{$fg_bold[blue]%}
-$(git_prompt_info)%{$fg_bold[blue]%}%{$fg_bold[red]%}➜ % %{$reset_color%}'
+%{$fg_bold[cyan]%}%p %{$fg[green]%}%n%{$fg[white]%}@%{$fg[green]%}%M%{$fg[white]%}:%{$fg_bold[yellow]%}%d %{$fg_bold[blue]%}
+$(git_prompt_info)%{$fg_bold[blue]%}%{$fg_bold[cyan]%}☁ % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
