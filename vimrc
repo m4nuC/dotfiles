@@ -36,7 +36,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-colorscheme torte
+
+if has('gui_running')
+  set guifont=Source\ Code\ Pro\ light:h15
+endif
+set background=dark
+colorscheme solarized
 set ruler
 set scrolloff=5
 "set cursorline
