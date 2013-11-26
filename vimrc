@@ -1,133 +1,113 @@
+" set up pathogen, https://github.com/tpope/vim-pathoge
+call pathogen#infect()          
 filetype off
-call pathogen#infect()
-filetype plugin indent on
 
+" don't bother with vi compatibility
 set nocompatible
+
+ " Turn on syntax highlighting.
+syntax enable      
+
+" Turn on file type detection.
+filetype plugin indent on         
+
+
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set backspace=indent,eol,start    " Intuitive backspacing.
+set hidden                        " Handle multiple buffers better.
 set ai
-syntax enable
-set number
-set backspace=indent,eol,start
-"set t_kb=ctrl-vBACKSPACE "backspace
-"fixdel
-
-"searches
-set ignorecase
-set smartcase
-nnoremap / /\v
-vnoremap / /\v
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
 set showmatch
-set gdefault
-set hlsearch
-set incsearch
-nnoremap <leader><space> :noh<cr>
-"tabs
-set expandtab
-set tabstop=4
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+set wrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+set title                         " Set the terminal's title
+set nobackup                      " Don't make a backup before overwriting a file.
+set undofile                      " Allow undo from history
+set list                        " show trailing whitespace
+set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮
+set gdefault                      " Uses the G flag by defaults
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set autochdir 				"Auto change the directory to current's file
+set cursorline             "highlight the current line 
+
+"TABS
+set tabstop=4                   " Global tab width.
+set shiftwidth=4                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
 set softtabstop=4
-set shiftwidth=4
-set smarttab
-
-"remaps
-nnoremap ; :
-inoremap jj <ESC> 
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+set laststatus=2                  " Show the status line all the time
 
 
+" THEME
 if has('gui_running')
-  set guifont=Source\ Code\ Pro\ light:h15
+  set guifont=Source\ Code\ Pro\ light:h14
 endif
 set background=dark
+" colorscheme monokai
 colorscheme solarized
-set ruler
-set scrolloff=5
-"set cursorline
-"hi CursorLine   cterm=NONE ctermbg=darkgray
-"hi TODO ctermfg=red ctermbg=darkgray
-set modelines=10
+set linespace=7 	" Line height
+
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+"MAPING
+let mapleader=","
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+"Tcomment siple comment
+nmap <leader>/ <c-_><c-_>
+" block comment
+nmap <leader>b <c-_>b
+
+" Disable localized menus for now since only some items are translated (e.g.
+" the entire MacVim menu is set up in a nib file which currently only is
+" translated to English).
+set langmenu=none
+set encoding=UTF8
+
+
+
 " Disable syntax highlight for files larger than 50 MB
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 50000000 | syntax clear | endif
-"set mouse=a
-set ttyfast
 
+" Auto open NERDTree
+autocmd VimEnter * NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd vimenter * NERDTree
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+nnoremap <leader>n :NERDTreeToggle<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tell vim to remember certain things when we exit
-" http://vim.wikia.com/wiki/VimTip80
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERD commenter
+filetype plugin on
+au FileType php setl ofu=phpcomplete#CompletePHP
+au FileType ruby,eruby setl ofu=rubycomplete#Complete
+au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+au FileType c setl ofu=ccomplete#CompleteCpp
+au FileType css setl ofu=csscomplete#CompleteCSS
 
-"  '10 : marks will be remembered for up to 10 previously edited files
-"  "100 : will save up to 100 lines for each register
-"  :20 : up to 20 lines of command-line history will be remembered
-"  % : saves and restores the buffer list
-"  n... : where to save the viminfo files
-set viminfo='10,\"100,:20,%,n~/.viminfo
+" imap <Tab> <C-n>		"open the suggestions panel on tab
 
-" when we reload, tell vim to restore the cursor to the saved position
-augroup JumpCursorOnEdit
- au!
- autocmd BufReadPost *
- \ if expand("<afile>:p:h") !=? $TEMP |
- \ if line("'\"") > 1 && line("'\"") <= line("$") |
- \ let JumpCursorOnEdit_foo = line("'\"") |
- \ let b:doopenfold = 1 |
- \ if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
- \ let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
- \ let b:doopenfold = 2 |
- \ endif |
- \ exe JumpCursorOnEdit_foo |
- \ endif |
- \ endif
- " Need to postpone using "zv" until after reading the modelines.
- autocmd BufWinEnter *
- \ if exists("b:doopenfold") |
- \ exe "normal zv" |
- \ if(b:doopenfold > 1) |
- \ exe "+".1 |
- \ endif |
- \ unlet b:doopenfold |
- \ endif
-
-"save folds on exit
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
-
-
-let g:myLang = 0
-let g:myLangList = ['nospell', 'en_us', 'es_es']
-function! MySpellLang()
-    "loop through languages
-    if g:myLang == 0 | setlocal nospell | endif
-    if g:myLang == 1 | let &l:spelllang = g:myLangList[g:myLang] |
-        setlocal spell | endif
-    if g:myLang == 2 | let &l:spelllang = g:myLangList[g:myLang] |
-        setlocal spell | endif
-    echomsg 'language:' g:myLangList[g:myLang]
-    let g:myLang = g:myLang + 1
-    if g:myLang >= len(g:myLangList) | let g:myLang = 0 | endif
-endfunction
-map <F4> :<C-U>call MySpellLang()<CR>
-map <F11> :<C-U>call WritingMode()<CR>
-
-function! WritingMode()
-    if (&foldcolumn != 6)
-"        set laststatus=0
-        set numberwidth=6
-        set foldcolumn=6
-        set noruler
-        hi FoldColumn ctermbg=none
-        hi LineNr ctermfg=0 ctermbg=none
-        hi NonText ctermfg=0
-    else
-"        set laststatus=2
-        set numberwidth=4
-        set foldcolumn=0
-        set ruler
-        execute 'colorscheme ' . g:colors_name
-    endif
-endfunction
-
-map <F8> :TagbarToggle<CR>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
