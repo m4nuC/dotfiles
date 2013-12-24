@@ -39,3 +39,6 @@ HISTFILESIZE=1000000000
 
 #Alias
 source ~/dotfiles/alias
+
+
+
