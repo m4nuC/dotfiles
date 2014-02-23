@@ -5,7 +5,10 @@ filetype off
 " don't bother with vi compatibility
 set nocompatible
 
- " Turn on syntax highlighting.
+" set the shell to zsh
+set shell=/bin/zsh
+set shellcmdflag=-ci
+" Turn on syntax highlighting.
 syntax enable
 
 " Turn on file type detection.
@@ -66,7 +69,7 @@ endif
 "set background=dark
 "colorscheme monokai
 "colorscheme twilight
-"colorscheme solarized
+colorscheme solarized
 "colorscheme xoria256
 colorscheme xoria256_modified
 set linespace=16 	" Line height
@@ -81,6 +84,13 @@ endif
 
 "MAPING
 let mapleader=","
+
+" Easy align plugin
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a(EasyAlign)
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -173,7 +183,7 @@ if ! has('gui_running')
     augroup END
 endif
 
-if expand("%") == ""|browse confirm w|else|confirm w|endif
+" if expand("%") == ""|browse confirm w|else|confirm w|endif
 " Trailing white space
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
