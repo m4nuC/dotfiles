@@ -148,8 +148,7 @@ nnoremap Y y$
 
 map <c-h> <c-w>h
 map <c-l> <c-w>l
-map <c-j> <c-w>j
-map <c-k> <c-w>k
+
 " make all line command act for screen line instead of actual lines
 noremap j gj
 noremap k gk
