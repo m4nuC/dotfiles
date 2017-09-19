@@ -1,5 +1,5 @@
 #Paths
-export PATH=/usr/local/php5/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/mysql/bin
+export PATH=:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/0mbre/anaconda/bin
 
 #Prompt
 PROMPT='
