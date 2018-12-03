@@ -44,5 +44,26 @@ HISTFILESIZE=1000000000
 #Alias
 source ~/dotfiles/alias
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 
+export NVM_DIR="/Users/0mbre/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="/usr/local/sbin:$PATH"
+export PATH=" /Users/0mbre/.nvm/versions/node/v8.9.4/lib/node_modules/:$PATH"
+export PATH="/Users/0mbre/Library/Python/3.6:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/0mbre/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/0mbre/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/0mbre/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/0mbre/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

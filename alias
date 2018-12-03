@@ -30,3 +30,6 @@ alias gitlol="git log --graph --decorate --pretty=oneline --abbrev-commit"
 
 #Misc
 alias wwwrestart="sudo apachectl start"
+
+#python verison
+

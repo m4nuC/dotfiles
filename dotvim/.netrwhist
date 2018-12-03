@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/ombre/www/qcmgt'
+let g:netrw_dirhist_2='/Users/0mbre/Dev/QCP_ansible'
+let g:netrw_dirhist_3='/Users/0mbre/anaconda3/envs/amazon-oracle/lib/python3.5/site-packages/nb_conda_kernels/logos/python'

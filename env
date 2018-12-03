@@ -1,5 +1,7 @@
 #Paths
-export PATH=:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/0mbre/anaconda/bin
+export PATH=:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/0mbre/Library/Python/2.7/bin
+
+
 
 #Prompt
 PROMPT='
