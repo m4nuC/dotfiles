@@ -9,7 +9,7 @@ bindkey -v
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -50,10 +50,6 @@ export LANG=en_US.UTF-8
 
 export NVM_DIR="/Users/0mbre/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="/usr/local/sbin:$PATH"
-export PATH=" /Users/0mbre/.nvm/versions/node/v8.9.4/lib/node_modules/:$PATH"
-export PATH="/Users/0mbre/Library/Python/3.6:$PATH"
-export PATH="/usr/local/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/0mbre/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/0mbre/google-cloud-sdk/path.zsh.inc'; fi
@@ -67,3 +63,48 @@ if [ -f '/Users/0mbre/google-cloud-sdk/completion.zsh.inc' ]; then source '/User
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/0mbre/.nvm/versions/node/v8.11.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/0mbre/Dev/aifiddle/model-service/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/0mbre/Dev/aifiddle/model-service/node_modules/tabtab/.completions/slss.zsh
+
+
+# added by Anaconda3 5.0.1 installer
+# export PATH="/Users/0mbre/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# added by Anaconda3 5.0.1 installer
+# export PATH="/Users/0mbre/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# added by Anaconda3 5.0.1 installer
+# export PATH="/Users/0mbre/anaconda3/bin:$PATH"  # commented out by conda initialize
+# added by Anaconda3 2019.07 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
+# . "/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/0mbre/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/0mbre/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/0mbre/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/0mbre/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
